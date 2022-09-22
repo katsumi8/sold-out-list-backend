@@ -13,16 +13,17 @@ const app = Express();
 
 app.use(Express.json());
 app.use(cors())
-app.use(Express.static(path.join(__dirname, "../../frontend/build")));
+// app.use(Express.static(path.join(__dirname, "../../frontend/build")));
 // app.use(Express.static(path.join(__dirname, "../public")))
 
 // APIの設定
 app.use("/api", apiRouter);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../frontend/build/index.html"));
-  // res.sendFile(path.join(__dirname, "../public/index.html"))
-});
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../../frontend/build/index.html"));
+//   // res.sendFile(path.join(__dirname, "../public/index.html"))
+// });
 
 const { MONGODB_USERNAME, MONGODB_PASSWORD, MONGODB_NAME } = process.env;
 

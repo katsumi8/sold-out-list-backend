@@ -15,14 +15,14 @@ dotenv_1.default.config({ path: ENV_PATH });
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
-app.use(express_1.default.static(path_1.default.join(__dirname, "../../frontend/build")));
+// app.use(Express.static(path.join(__dirname, "../../frontend/build")));
 // app.use(Express.static(path.join(__dirname, "../public")))
 // APIの設定
 app.use("/api", apis_1.default);
-app.get("*", (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, "../../frontend/build/index.html"));
-    // res.sendFile(path.join(__dirname, "../public/index.html"))
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../../frontend/build/index.html"));
+//   // res.sendFile(path.join(__dirname, "../public/index.html"))
+// });
 const { MONGODB_USERNAME, MONGODB_PASSWORD, MONGODB_NAME } = process.env;
 mongoose_1.default.connect(`mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@cluster0.tvmvs0t.mongodb.net/${MONGODB_NAME}?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
